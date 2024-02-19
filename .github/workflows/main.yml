@@ -15,6 +15,6 @@ jobs:
         key: ${{ secrets.SSH_KEY }}
         port: ${{ secrets.REMOTE_PORT }}
         script: |
-          sudo rm -rf ./devopsDay1
-          sudo git clone https://github.com/LCH-97/devopsDay1.git
-          sudo mv -f ./devopsDay1/*.html /var/www/html
+          sudo rm -rf ./LCH-97.github.io
+          sudo git clone https://github.com/LCH-97/LCH-97.github.io.git
+          sudo mv -f ./LCH-97.github.io/*.html /var/www/html
