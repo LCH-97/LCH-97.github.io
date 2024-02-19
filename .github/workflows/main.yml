@@ -1,14 +1,11 @@
-name: devops test
-
+name: devops
 on:
   push:
     branches: [ main ]
-    
 jobs:
   deploy:
     name: Deploy to EC2
     runs-on: ubuntu-latest
-
     steps:
     - name: get code from github
       uses: appleboy/ssh-action@v0.1.9
@@ -18,4 +15,6 @@ jobs:
         key: ${{ secrets.SSH_KEY }}
         port: ${{ secrets.REMOTE_PORT }}
         script: |
-          echo test > /tmp/abcd
+          sudo rm -rf ./devopsDay1
+          sudo git clone https://github.com/LCH-97/devopsDay1.git
+          sudo mv -f ./devopsDay1/*.html /var/www/html
